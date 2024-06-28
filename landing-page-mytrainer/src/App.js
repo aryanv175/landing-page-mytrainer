@@ -20,6 +20,12 @@ const StyledImage = styled.img`
   margin-top: 8px;
 `;
 
+const StyledImage2 = styled.img`
+  width: 450px;  // Set your desired width
+  margin-right: 12px;
+  margin-top: 8px;
+`;
+
 const Title = styled.h1`
   font-size: 64px;
 `;
@@ -31,6 +37,7 @@ const Tagline = styled.h1`
 
 const Subtitle = styled.p`
   font-size: 1.2em;
+  text-align: left;
 `;
 
 const DownloadButton = styled.button`
@@ -38,15 +45,12 @@ const DownloadButton = styled.button`
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 36px;
   cursor: pointer;
   font-size: 1em;
 `;
 
-const Image = styled.img`
-  width: 200px;
-  margin-top: 20px;
-`;
+
 
 const Div2 = styled.div`
   display: flex;
@@ -79,7 +83,7 @@ function App() {
           <AppInfo />
         </HalfWidthDiv>
         <HalfWidthDiv>
-          <Image src={mobileImage} alt="Mobile App" />
+          <StyledImage2 src={mobileImage} alt="Mobile App" />
         </HalfWidthDiv>
       </Div2>
     </Container>
