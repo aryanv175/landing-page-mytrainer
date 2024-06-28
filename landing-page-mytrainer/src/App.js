@@ -1,27 +1,32 @@
-// src/App.js (continued)
+// src/App.js
 import React from 'react';
 import styled from 'styled-components';
 import AppInfo from './components/AppInfo';
 import mobileImage from './assets/mobile.png'; // Make sure to place your image in the src/assets folder
+import emojiImage from './assets/emoji.png';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 `;
 
-const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  font-size: 24px;
+const StyledImage = styled.img`
+  width: 64px;  // Set your desired width
+  height: 64px; // Adjust height automatically to maintain aspect ratio
+  margin-right: 12px;
+  margin-top: 8px;
 `;
 
 const Title = styled.h1`
-  font-size: 2.5em;
+  font-size: 64px;
+`;
+
+const Tagline = styled.h1`
+  font-size: 64px;
+  text-align: left;
 `;
 
 const Subtitle = styled.p`
@@ -43,22 +48,40 @@ const Image = styled.img`
   margin-top: 20px;
 `;
 
+const Div2 = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+`;
+
+const HalfWidthDiv = styled.div`
+  flex: 1;
+  padding: 20px;
+`;
+
 function App() {
   return (
     <Container>
-      <Header>
-        <span role="img" aria-label="muscle">
-          💪
-        </span>
+      <Title>
+        <StyledImage src={emojiImage} alt="Mobile App" />
         MyTrainer
-      </Header>
-      <Title>Your workout. Your way.</Title>
-      <Subtitle>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero risus semper habitant arcu eget. Et integer facilisi eget.
-      </Subtitle>
-      <DownloadButton>Download the App</DownloadButton>
-      <Image src={mobileImage} alt="Mobile App" />
-      <AppInfo />
+      </Title>
+      <Div2>
+        <HalfWidthDiv>
+          <Tagline>Your workout.</Tagline>
+          <Tagline>Your way.</Tagline>
+          <Subtitle>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero risus semper habitant arcu eget. Et integer facilisi eget.
+          </Subtitle>
+          <DownloadButton>Download the App</DownloadButton>
+          <AppInfo />
+        </HalfWidthDiv>
+        <HalfWidthDiv>
+          <Image src={mobileImage} alt="Mobile App" />
+        </HalfWidthDiv>
+      </Div2>
     </Container>
   );
 }

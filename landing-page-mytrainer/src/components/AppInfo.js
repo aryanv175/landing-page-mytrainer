@@ -39,6 +39,7 @@ function AppInfo() {
         <InfoNumber>No.1</InfoNumber>
         <InfoText>Lorem ipsum dolor amet</InfoText>
       </InfoBlock>
+      
     </InfoContainer>
   );
 }
