@@ -6,10 +6,12 @@ const InfoContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   margin-top: 20px;
+  background: black;
+  border-radius: 24px;
 `;
 
 const InfoBlock = styled.div`
-  background: black;
+  
   color: white;
   padding: 20px;
   border-radius: 5px;
@@ -29,15 +31,18 @@ function AppInfo() {
     <InfoContainer>
       <InfoBlock>
         <InfoNumber>4.9</InfoNumber>
-        <InfoText>Lorem ipsum dolor amet</InfoText>
+        <InfoText>Lorem ipsum</InfoText>
+        <InfoText>dolor amet</InfoText>
       </InfoBlock>
       <InfoBlock>
         <InfoNumber>876K</InfoNumber>
-        <InfoText>Lorem ipsum dolor amet</InfoText>
+        <InfoText>Lorem ipsum</InfoText>
+        <InfoText>dolor amet</InfoText>
       </InfoBlock>
       <InfoBlock>
         <InfoNumber>No.1</InfoNumber>
-        <InfoText>Lorem ipsum dolor amet</InfoText>
+        <InfoText>Lorem ipsum</InfoText>
+        <InfoText>dolor amet</InfoText>
       </InfoBlock>
       
     </InfoContainer>

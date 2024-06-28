@@ -22,7 +22,7 @@ const StyledImage = styled.img`
 `;
 
 const StyledImage2 = styled.img`
-  width: 450px;  // Set your desired width
+  width: 475px;  // Set your desired width
   margin-right: 12px;
   margin-top: 8px;
 `;
@@ -31,6 +31,7 @@ const Title = styled.h1`
   font-size: 64px;
   font-family: poppins;
   margin-top: 0px;
+  margin-bottom: 0px;
 `;
 
 const Tagline = styled.h1`
@@ -43,6 +44,7 @@ const Tagline = styled.h1`
 const Subtitle = styled.p`
   font-size: 1.2em;
   text-align: left;
+  margin-bottom: 36px;
 `;
 
 const DownloadButton = styled.button`
@@ -55,6 +57,8 @@ const DownloadButton = styled.button`
   font-size: 1em;
   width: 269px;
   height: 78px;
+  margin-bottom: 30px;
+  font-weight: 700;
 `;
 
 
@@ -65,7 +69,13 @@ const Div2 = styled.div`
   align-items: center;
   width: 100%;
   padding: 20px;
+
 `;
+
+const Div3 = styled.div`
+  text-align: left;
+`;
+
 
 const HalfWidthDiv = styled.div`
   flex: 1;
@@ -86,7 +96,9 @@ function App() {
           <Subtitle>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero risus semper habitant arcu eget. Et integer facilisi eget.
           </Subtitle>
-          <DownloadButton>Download the App</DownloadButton>
+          <Div3>
+            <DownloadButton>Join Waitlist</DownloadButton>
+          </Div3>
           <AppInfo />
         </HalfWidthDiv>
         <HalfWidthDiv>
