@@ -11,7 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 6px;
+  padding: 6px 24px;
 `;
 
 const StyledImage = styled.img`
