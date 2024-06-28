@@ -30,19 +30,19 @@ function AppInfo() {
   return (
     <InfoContainer>
       <InfoBlock>
-        <InfoNumber>4.9</InfoNumber>
-        <InfoText>Lorem ipsum</InfoText>
-        <InfoText>dolor amet</InfoText>
+        <InfoNumber>s5</InfoNumber>
+        <InfoText>Guadmire</InfoText>
+        <InfoText>Buildspace</InfoText>
       </InfoBlock>
       <InfoBlock>
-        <InfoNumber>876K</InfoNumber>
-        <InfoText>Lorem ipsum</InfoText>
-        <InfoText>dolor amet</InfoText>
+        <InfoNumber>48H</InfoNumber>
+        <InfoText>Made in</InfoText>
+        <InfoText>48 hours</InfoText>
       </InfoBlock>
       <InfoBlock>
         <InfoNumber>No.1</InfoNumber>
-        <InfoText>Lorem ipsum</InfoText>
-        <InfoText>dolor amet</InfoText>
+        <InfoText>My first</InfoText>
+        <InfoText>IOS app</InfoText>
       </InfoBlock>
       
     </InfoContainer>

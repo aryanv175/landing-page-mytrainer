@@ -107,8 +107,7 @@ function App() {
           <Tagline>Your workout.</Tagline>
           <Tagline>Your way.</Tagline>
           <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero risus semper habitant arcu eget. Et integer facilisi eget.
-          </Subtitle>
+            Get voice reminders for your specific workout routine and never worry about missing an exercise ever again!          </Subtitle>
           <Div3>
             <DownloadButton>Join Waitlist</DownloadButton>
           </Div3>
