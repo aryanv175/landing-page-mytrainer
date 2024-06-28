@@ -6,11 +6,12 @@ import mobileImage from './assets/mobile.png'; // Make sure to place your image 
 import emojiImage from './assets/emoji.png';
 
 const Container = styled.div`
+  font-family: poppins;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: 6px;
 `;
 
 const StyledImage = styled.img`
@@ -28,9 +29,13 @@ const StyledImage2 = styled.img`
 
 const Title = styled.h1`
   font-size: 64px;
+  font-family: poppins;
+  margin-top: 0px;
 `;
 
 const Tagline = styled.h1`
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 64px;
   text-align: left;
 `;
@@ -48,6 +53,8 @@ const DownloadButton = styled.button`
   border-radius: 36px;
   cursor: pointer;
   font-size: 1em;
+  width: 269px;
+  height: 78px;
 `;
 
 
