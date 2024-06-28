@@ -1,10 +1,9 @@
-// src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AppInfo from './components/AppInfo';
-import mobileImage from './assets/mobile.png'; // Ensure your image path is correct
+import mobileImage from './assets/mobile.png';
 import emojiImage from './assets/emoji.png';
-import starImage from './assets/star.png'; // Import the star image
+import starImage from './assets/star.png';
 
 const Container = styled.div`
   font-family: Poppins, sans-serif;
@@ -38,10 +37,10 @@ const StyledImage2 = styled.img`
 
 const StarImage = styled.img`
   position: absolute;
-  top: 11px; // Adjust the position as needed
-  left: 283px; // Adjust the position as needed
-  width: 20px; // Adjust the size as needed
-  height: 20px; // Adjust the size as needed
+  top: 11px;
+  left: 283px;
+  width: 20px;
+  height: 20px;
 `;
 
 const Title = styled.h1`
@@ -77,24 +76,60 @@ const DownloadButton = styled.button`
   font-weight: 700;
 `;
 
-const Div2 = styled.div`
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+`;
+
+const ModalContent = styled.div`
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+`;
+
+const TextInput = styled.input`
   width: 100%;
-  padding: 20px;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
 `;
 
-const Div3 = styled.div`
-  text-align: left;
-`;
+const JoinWaitlistButton = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true); // Add state to manage email validation
 
-const HalfWidthDiv = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
+  const handleSubmit = () => {
+    // Basic email validation
+    const isValid = /\S+@\S+\.\S+/.test(email);
+    setIsValidEmail(isValid);
 
-function App() {
+    if (isValid) {
+      // Store or send the email (e.g., send to backend or store in localStorage)
+      alert(`Email submitted: ${email}`);
+      // Optionally clear the email field or close the modal
+      setEmail('');
+      setShowModal(false);
+    }
+  };
+
   return (
     <Container>
       <TitleContainer>
@@ -102,23 +137,40 @@ function App() {
         <Title>MyTrainer</Title>
         <StarImage src={starImage} alt="Star Image" />
       </TitleContainer>
-      <Div2>
-        <HalfWidthDiv>
+      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%', padding: '20px' }}>
+        <div style={{ flex: 1, padding: '20px' }}>
           <Tagline>Your workout.</Tagline>
           <Tagline>Your way.</Tagline>
           <Subtitle>
-            Get voice reminders for your specific workout routine and never worry about missing an exercise ever again!          </Subtitle>
-          <Div3>
-            <DownloadButton>Join Waitlist</DownloadButton>
-          </Div3>
+            Get voice reminders for your specific workout routine and never worry about missing an exercise ever again!
+          </Subtitle>
+          <div style={{ textAlign: 'left' }}>
+            <DownloadButton onClick={() => setShowModal(true)}>Join Waitlist</DownloadButton>
+          </div>
           <AppInfo />
-        </HalfWidthDiv>
-        <HalfWidthDiv>
+        </div>
+        <div style={{ flex: 1, padding: '20px' }}>
           <StyledImage2 src={mobileImage} alt="Mobile App" />
-        </HalfWidthDiv>
-      </Div2>
+        </div>
+      </div>
+      {showModal && (
+        <ModalOverlay>
+          <ModalContent>
+            <CloseButton onClick={() => setShowModal(false)}>&times;</CloseButton>
+            <h2>Join Waitlist</h2>
+            <TextInput
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {!isValidEmail && <p style={{ color: 'red' }}>Please enter a valid email address</p>}
+            <button onClick={handleSubmit}>Submit</button>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </Container>
   );
-}
+};
 
-export default App;
+export default JoinWaitlistButton;
