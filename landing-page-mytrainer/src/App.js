@@ -96,8 +96,7 @@ const ModalContent = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  right: 530px;
   background: none;
   border: none;
   font-size: 1.5em;
@@ -108,7 +107,8 @@ const TextInput = styled.input`
   width: 100%;
   padding: 10px;
   font-size: 1em;
-  margin-bottom: 10px;
+  border-radius: 36px;
+  margin: 10px;
 `;
 
 const JoinWaitlistButton = () => {
@@ -165,7 +165,7 @@ const JoinWaitlistButton = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             {!isValidEmail && <p style={{ color: 'red' }}>Please enter a valid email address</p>}
-            <button onClick={handleSubmit}>Submit</button>
+            <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
           </ModalContent>
         </ModalOverlay>
       )}
