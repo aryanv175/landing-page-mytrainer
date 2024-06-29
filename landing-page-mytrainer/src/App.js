@@ -63,6 +63,12 @@ const Subtitle = styled.p`
   margin-bottom: 36px;
 `;
 
+const Subtitle2 = styled.p`
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 36px;
+`;
+
 const DownloadButton = styled.button`
   background-color: #007bff;
   color: white;
@@ -189,6 +195,7 @@ const JoinWaitlistButton = () => {
             />
             {!isValidEmail && <ErrorMessage>Please enter a valid email address</ErrorMessage>}
             <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
+            <Subtitle2>Please wait upto 5 seconds after pressing submit!</Subtitle2>
           </ModalContent>
         </ModalOverlay>
       )}
