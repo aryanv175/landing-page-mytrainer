@@ -92,11 +92,12 @@ const ModalContent = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 8px;
+  
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  right: 530px;
+  right: 548px;
   background: none;
   border: none;
   font-size: 1.5em;
@@ -104,11 +105,11 @@ const CloseButton = styled.button`
 `;
 
 const TextInput = styled.input`
-  width: 100%;
+  width: 80%;
   padding: 10px;
   font-size: 1em;
   border-radius: 36px;
-  margin: 10px;
+  margin-bottom: 28px;
 `;
 
 const JoinWaitlistButton = () => {
