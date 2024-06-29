@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AppInfo from './components/AppInfo';
-import mobileImage from './assets/mobile.png';
+import mobileImage from './assets/mobile2.png';
 import emojiImage from './assets/emoji.png';
 import starImage from './assets/star.png';
 
@@ -30,7 +30,7 @@ const StyledImage = styled.img`
 `;
 
 const StyledImage2 = styled.img`
-  width: 475px;
+  width: 500px;
   margin-right: 12px;
   margin-top: 8px;
 `;
