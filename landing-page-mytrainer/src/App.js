@@ -92,12 +92,19 @@ const ModalContent = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  
+  width: 400px; /* Set a fixed width for the modal */
+  height: 300px; /* Set a fixed height for the modal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  right: 548px;
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
   font-size: 1.5em;
@@ -106,26 +113,29 @@ const CloseButton = styled.button`
 
 const TextInput = styled.input`
   width: 80%;
-  padding: 10px;
+  padding: 12px;
   font-size: 1em;
   border-radius: 36px;
-  margin-bottom: 28px;
+  margin-bottom: 16px; /* Adjusted margin */
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  margin-top: 0px;
+  margin-bottom: 12px; /* Ensure no margin disrupts the layout */
 `;
 
 const JoinWaitlistButton = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState('');
-  const [isValidEmail, setIsValidEmail] = useState(true); // Add state to manage email validation
+  const [isValidEmail, setIsValidEmail] = useState(true);
 
   const handleSubmit = () => {
-    // Basic email validation
     const isValid = /\S+@\S+\.\S+/.test(email);
     setIsValidEmail(isValid);
 
     if (isValid) {
-      // Store or send the email (e.g., send to backend or store in localStorage)
       alert(`Email submitted: ${email}`);
-      // Optionally clear the email field or close the modal
       setEmail('');
       setShowModal(false);
     }
@@ -165,7 +175,7 @@ const JoinWaitlistButton = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {!isValidEmail && <p style={{ color: 'red' }}>Please enter a valid email address</p>}
+            {!isValidEmail && <ErrorMessage>Please enter a valid email address</ErrorMessage>}
             <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
           </ModalContent>
         </ModalOverlay>
