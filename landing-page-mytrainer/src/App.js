@@ -4,6 +4,7 @@ import AppInfo from './components/AppInfo';
 import mobileImage from './assets/mobile2.png';
 import emojiImage from './assets/emoji.png';
 import starImage from './assets/star.png';
+import { db, collection, addDoc } from './firebase';
 
 const Container = styled.div`
   font-family: Poppins, sans-serif;
@@ -125,19 +126,25 @@ const ErrorMessage = styled.p`
   margin-bottom: 12px; /* Ensure no margin disrupts the layout */
 `;
 
+
 const JoinWaitlistButton = () => {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(true);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const isValid = /\S+@\S+\.\S+/.test(email);
     setIsValidEmail(isValid);
 
     if (isValid) {
-      alert(`Email submitted: ${email}`);
-      setEmail('');
-      setShowModal(false);
+      try {
+        await addDoc(collection(db, 'waitlist'), { email });
+        alert(`Email submitted: ${email}`);
+        setEmail('');
+        setShowModal(false);
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
     }
   };
 
