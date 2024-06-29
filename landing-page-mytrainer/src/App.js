@@ -135,9 +135,10 @@ const JoinWaitlistButton = () => {
   const handleSubmit = async () => {
     const isValid = /\S+@\S+\.\S+/.test(email);
     setIsValidEmail(isValid);
-  
+
     if (isValid) {
       try {
+        console.log("Submitting email:", email);
         const docRef = await addDoc(collection(db, 'waitlist'), { email });
         console.log("Document written with ID: ", docRef.id);
         alert(`Email submitted: ${email}`);
@@ -147,6 +148,8 @@ const JoinWaitlistButton = () => {
         console.error("Error adding document: ", error);
         alert(`Error submitting email: ${error.message}`);
       }
+    } else {
+      console.log("Invalid email:", email);
     }
   };
 
