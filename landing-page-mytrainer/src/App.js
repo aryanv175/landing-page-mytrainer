@@ -135,15 +135,17 @@ const JoinWaitlistButton = () => {
   const handleSubmit = async () => {
     const isValid = /\S+@\S+\.\S+/.test(email);
     setIsValidEmail(isValid);
-
+  
     if (isValid) {
       try {
-        await addDoc(collection(db, 'waitlist'), { email });
+        const docRef = await addDoc(collection(db, 'waitlist'), { email });
+        console.log("Document written with ID: ", docRef.id);
         alert(`Email submitted: ${email}`);
         setEmail('');
         setShowModal(false);
       } catch (error) {
         console.error("Error adding document: ", error);
+        alert(`Error submitting email: ${error.message}`);
       }
     }
   };
