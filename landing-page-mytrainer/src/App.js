@@ -16,6 +16,10 @@ const Container = styled.div`
   padding: 10px 24px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -46,23 +50,39 @@ const GitHubLink = styled.a`
 `;
 
 const StyledImage = styled.img`
-  width: 64px;
-  height: 64px;
-  margin-right: 12px;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 const StarImage = styled.img`
   position: absolute;
-  top: 12px; // Adjust this value as needed
-  left: calc(100% - 129.5px); // Adjust this value as needed
-  width: 20px;
-  height: 20px;
+  top: 8px;
+  left: calc(100% - 98px);
+  width: 16px;
+  height: 16px;
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    top: 5px;
+    left: calc(100% - 65px);
+    width: 12px;
+    height: 12px;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 64px;
+  font-size: 48px;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -87,6 +107,7 @@ const ContentSection = styled.div`
 
   @media (max-width: 768px) {
     align-items: center;
+    padding: 10px;
   }
 `;
 
@@ -101,22 +122,24 @@ const ImageSection = styled.div`
 
 const Tagline = styled.h1`
   margin-top: 0px;
-  margin-bottom: -8px;
-  font-size: 64px;
+  margin-bottom: -12px;
+  font-size: 48px;
   text-align: left;
   
   @media (max-width: 768px) {
-    font-size: 48px;
+    font-size: 36px;
     text-align: center;
+    margin-bottom: 0;
   }
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.2em;
+  font-size: 1.1em;
   text-align: left;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   
   @media (max-width: 768px) {
+    font-size: 0.9em;
     text-align: center;
   }
 `;
@@ -189,13 +212,15 @@ const DownloadButton = styled.button`
   border-radius: 36px;
   cursor: pointer;
   font-size: 1em;
-  width: 269px;
-  height: 78px;
-  margin-bottom: 30px;
+  width: 220px;
+  height: 60px;
+  margin-bottom: 24px;
   font-weight: 700;
 
   @media (max-width: 768px) {
-    align-self: center;
+    width: 180px;
+    height: 50px;
+    font-size: 0.9em;
   }
 `;
 
