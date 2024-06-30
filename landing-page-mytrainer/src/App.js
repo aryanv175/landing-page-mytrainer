@@ -4,6 +4,7 @@ import AppInfo from './components/AppInfo';
 import mobileImage from './assets/mobile2.png';
 import emojiImage from './assets/emoji.png';
 import starImage from './assets/star.png';
+import gitImage from './assets/git.png';
 import { db, collection, addDoc } from './firebase';
 
 const Container = styled.div`
@@ -165,6 +166,7 @@ const JoinWaitlistButton = () => {
         <StyledImage src={emojiImage} alt="Mobile App" />
         <Title>MyTrainer</Title>
         <StarImage src={starImage} alt="Star Image" />
+        <StyledImage src={gitImage} alt="Mobile App" />
       </TitleContainer>
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%', padding: '20px' }}>
         <div style={{ flex: 1, padding: '20px' }}>
