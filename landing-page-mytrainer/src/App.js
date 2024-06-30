@@ -133,6 +133,15 @@ const ErrorMessage = styled.p`
   margin-bottom: 12px; /* Ensure no margin disrupts the layout */
 `;
 
+const StyledImage3 = styled.img`
+  position: relative;
+  top: -4px;
+  right: -560px;
+  width: 64px;
+  height: 64px;
+  margin-right: 12px;
+  margin-top: 8px;
+`;
 
 const JoinWaitlistButton = () => {
   const [showModal, setShowModal] = useState(false);
@@ -166,7 +175,9 @@ const JoinWaitlistButton = () => {
         <StyledImage src={emojiImage} alt="Mobile App" />
         <Title>MyTrainer</Title>
         <StarImage src={starImage} alt="Star Image" />
-        <StyledImage src={gitImage} alt="Mobile App" />
+        <a href="https://github.com/aryanv175/MyTrainer" target="_blank" rel="noopener noreferrer">
+          <StyledImage3 src={gitImage} alt="GitHub Repository" />
+        </a>
       </TitleContainer>
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%', padding: '20px' }}>
         <div style={{ flex: 1, padding: '20px' }}>
