@@ -14,41 +14,89 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   padding: 10px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const TitleContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative; // Add this line
+`;
+
+const GitHubLink = styled.a`
+  position: absolute;
+  right: 0;
+
+  @media (max-width: 768px) {
+    position: static;
+  }
 `;
 
 const StyledImage = styled.img`
-  position: relative;
-  top: -5px;
   width: 64px;
   height: 64px;
   margin-right: 12px;
-  margin-top: 8px;
-`;
-
-const StyledImage2 = styled.img`
-  width: 500px;
-  margin-right: 12px;
-  margin-top: 8px;
 `;
 
 const StarImage = styled.img`
   position: absolute;
-  top: 11px;
-  left: 283px;
+  top: 12px; // Adjust this value as needed
+  left: calc(100% - 129.5px); // Adjust this value as needed
   width: 20px;
   height: 20px;
+  pointer-events: none;
 `;
 
 const Title = styled.h1`
   font-size: 64px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const ContentSection = styled.div`
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+`;
+
+const ImageSection = styled.div`
+  flex: 1;
+  padding: 20px;
+  
+  @media (max-width: 768px) {
+    order: 2;
+  }
 `;
 
 const Tagline = styled.h1`
@@ -56,32 +104,26 @@ const Tagline = styled.h1`
   margin-bottom: -8px;
   font-size: 64px;
   text-align: left;
+  
+  @media (max-width: 768px) {
+    font-size: 48px;
+    text-align: center;
+  }
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2em;
   text-align: left;
   margin-bottom: 36px;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
-const Subtitle2 = styled.p`
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 36px;
-`;
-
-const DownloadButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 36px;
-  cursor: pointer;
-  font-size: 1em;
-  width: 269px;
-  height: 78px;
-  margin-bottom: 30px;
-  font-weight: 700;
+const StyledImage2 = styled.img`
+  width: 100%;
+  max-width: 500px;
 `;
 
 const ModalOverlay = styled.div`
@@ -100,8 +142,8 @@ const ModalContent = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 400px; /* Set a fixed width for the modal */
-  height: 300px; /* Set a fixed height for the modal */
+  width: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,23 +166,37 @@ const TextInput = styled.input`
   padding: 12px;
   font-size: 1em;
   border-radius: 36px;
-  margin-bottom: 16px; /* Adjusted margin */
+  margin-bottom: 16px;
 `;
 
 const ErrorMessage = styled.p`
   color: red;
   margin-top: 0px;
-  margin-bottom: 12px; /* Ensure no margin disrupts the layout */
+  margin-bottom: 12px;
 `;
 
-const StyledImage3 = styled.img`
-  position: relative;
-  top: -4px;
-  right: -560px;
-  width: 64px;
-  height: 64px;
-  margin-right: 12px;
-  margin-top: 8px;
+const Subtitle2 = styled.p`
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 36px;
+`;
+
+const DownloadButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 36px;
+  cursor: pointer;
+  font-size: 1em;
+  width: 269px;
+  height: 78px;
+  margin-bottom: 30px;
+  font-weight: 700;
+
+  @media (max-width: 768px) {
+    align-self: center;
+  }
 `;
 
 const JoinWaitlistButton = () => {
@@ -172,29 +228,29 @@ const JoinWaitlistButton = () => {
   return (
     <Container>
       <TitleContainer>
-        <StyledImage src={emojiImage} alt="Mobile App" />
-        <Title>MyTrainer</Title>
-        <StarImage src={starImage} alt="Star Image" />
-        <a href="https://github.com/aryanv175/MyTrainer" target="_blank" rel="noopener noreferrer">
-          <StyledImage3 src={gitImage} alt="GitHub Repository" />
-        </a>
+        <LogoContainer>
+          <StyledImage src={emojiImage} alt="Mobile App" />
+          <Title>MyTrainer</Title>
+          <StarImage src={starImage} alt="Star Image" />
+        </LogoContainer>
+        <GitHubLink href="https://github.com/aryanv175/MyTrainer" target="_blank" rel="noopener noreferrer">
+          <StyledImage src={gitImage} alt="GitHub Repository" />
+        </GitHubLink>
       </TitleContainer>
-      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%', padding: '20px' }}>
-        <div style={{ flex: 1, padding: '20px' }}>
+      <ContentWrapper>
+        <ContentSection>
           <Tagline>Your workout.</Tagline>
           <Tagline>Your way.</Tagline>
           <Subtitle>
             Get voice reminders for your specific workout routine and never worry about missing an exercise ever again!
           </Subtitle>
-          <div style={{ textAlign: 'left' }}>
-            <DownloadButton onClick={() => setShowModal(true)}>Join Waitlist</DownloadButton>
-          </div>
+          <DownloadButton onClick={() => setShowModal(true)}>Join Waitlist</DownloadButton>
           <AppInfo />
-        </div>
-        <div style={{ flex: 1, padding: '20px' }}>
+        </ContentSection>
+        <ImageSection>
           <StyledImage2 src={mobileImage} alt="Mobile App" />
-        </div>
-      </div>
+        </ImageSection>
+      </ContentWrapper>
       {showModal && (
         <ModalOverlay>
           <ModalContent>
@@ -208,7 +264,7 @@ const JoinWaitlistButton = () => {
             />
             {!isValidEmail && <ErrorMessage>Please enter a valid email address</ErrorMessage>}
             <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
-            <Subtitle2>Please wait upto 5 seconds after pressing submit!</Subtitle2>
+            <Subtitle2>Please wait up to 5 seconds after pressing submit!</Subtitle2>
           </ModalContent>
         </ModalOverlay>
       )}
