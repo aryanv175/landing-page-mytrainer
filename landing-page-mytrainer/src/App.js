@@ -204,6 +204,12 @@ const Subtitle2 = styled.p`
   margin-bottom: 36px;
 `;
 
+const ButtonHolder = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
 const DownloadButton = styled.button`
   background-color: #007bff;
   color: white;
@@ -212,13 +218,31 @@ const DownloadButton = styled.button`
   border-radius: 36px;
   cursor: pointer;
   font-size: 1em;
-  width: 220px;
+  flex: 1;
   height: 60px;
   margin-bottom: 24px;
   font-weight: 700;
 
   @media (max-width: 768px) {
-    width: 180px;
+    height: 50px;
+    font-size: 0.9em;
+  }
+`;
+
+const TryButton = styled.button`
+  background-color: white;
+  color: #007bff;
+  padding: 10px 20px;
+  border-color: #007bff;
+  border-radius: 36px;
+  cursor: pointer;
+  font-size: 1em;
+  flex: 1;
+  height: 60px;
+  margin-bottom: 24px;
+  font-weight: 700;
+
+  @media (max-width: 768px) {
     height: 50px;
     font-size: 0.9em;
   }
@@ -269,7 +293,11 @@ const JoinWaitlistButton = () => {
           <Subtitle>
             Get voice reminders for your specific workout routine and never worry about missing an exercise ever again!
           </Subtitle>
+          
           <DownloadButton onClick={() => setShowModal(true)}>Join Waitlist</DownloadButton>
+          <a href="https://mytrainer-web-app.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <TryButton>Try WebApp</TryButton>
+          </a>
           <AppInfo />
         </ContentSection>
         <ImageSection>
@@ -288,8 +316,10 @@ const JoinWaitlistButton = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             {!isValidEmail && <ErrorMessage>Please enter a valid email address</ErrorMessage>}
-            <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
-            <Subtitle2>Please wait up to 5 seconds after pressing submit!</Subtitle2>
+            <ButtonHolder>
+              <DownloadButton onClick={handleSubmit}>Submit</DownloadButton>
+              <Subtitle2>Please wait up to 5 seconds after pressing submit!</Subtitle2>
+            </ButtonHolder>
           </ModalContent>
         </ModalOverlay>
       )}

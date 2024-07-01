@@ -11,7 +11,6 @@ const InfoContainer = styled.div`
 `;
 
 const InfoBlock = styled.div`
-  
   color: white;
   padding: 20px;
   border-radius: 5px;
